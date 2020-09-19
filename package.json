@@ -15,6 +15,7 @@
     "jquery": "^3.5.1",
     "leaflet": "^1.7.1",
     "nodemailer": "^6.4.8",
+    "papaparse": "^5.3.0",
     "react": "^16.13.1",
     "react-animate-height": "^2.0.21",
     "react-dom": "^16.13.1",
