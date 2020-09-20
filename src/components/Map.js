@@ -23,6 +23,19 @@ export default class DemoMap extends Component {
             shadowSize: [41, 41]
         });
 
+        const iconBooth = L.Icon({
+            iconUrl: "vote.png",
+            iconRetinaUrl: "vote.png",
+            iconAnchor: null,
+            popupAnchor: null,
+            shadowUrl: null,
+            shadowSize: null,
+            shadowAnchor: null,
+            iconSize: new L.Point(60, 75),
+            className: 'leaflet-div-icon'
+        });
+        
+
         return (
             this.props.incidents ?
             <Map center={[this.state.lat, this.state.lng]} zoom={this.state.zoom}
@@ -56,7 +69,7 @@ export default class DemoMap extends Component {
                     
          
                 return (
-                <Marker position={point} key={incident['id']} >
+                <Marker position={point} key={incident['id']} icon={iconBooth} >
                     <Popup>
                         <span>ADDRESS: {incident['STREET_NUMBER']} {incident['STREET_NAME']}, {incident['CITY']} - {incident['POSTCODE']}</span>
                      <br/>
