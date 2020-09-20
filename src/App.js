@@ -31,7 +31,8 @@ const App = () => {
           <SidebarHeader>
             <Menu iconShape="square">
               <MenuItem><img src={logo} alt="logo" class="center"></img>
-              <h2 class="title">TurboVote</h2></MenuItem>
+              <h2 class="title">TurboVote</h2>
+              <p text-align = "center">Find the nearest voting poll <br></br>and go vote today</p></MenuItem>
               
             </Menu>
           </SidebarHeader>
