@@ -6,12 +6,14 @@ import "leaflet/dist/leaflet.css";
 import DemoMap from './components/Map'
 import Papa from 'papaparse'
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarFooter, SidebarContent } from 'react-pro-sidebar';
-import logo from './logo1.jpg';
+import logo from './logo.png';
 import './custom.scss';
 import './styles.css';
 
 const App = () => {
-  const [incidents, setRows] = React.useState([])
+  const [incidents, setRows] = React.useState([]);
+  const [openBooth, setBooth] = React.useState();
+  const [values, setValues] = React.useState();
   React.useEffect(() => {
     async function getData() {
       const response = await fetch('Voting_Poll_Sites.csv')
@@ -29,7 +31,7 @@ const App = () => {
       <div>
         <ProSidebar>
           <SidebarHeader>
-            <Menu iconShape="square">
+            <Menu iconShape="square" >
               <MenuItem><img src={logo} alt="logo" class="center"></img>
               <h2 class="title">TurboVote</h2>
               <p text-align = "center">Find the nearest voting poll <br></br>and go vote today</p></MenuItem>
@@ -38,33 +40,16 @@ const App = () => {
           </SidebarHeader>
           <SidebarContent>
             <Menu iconShape="square">
-              <MenuItem>Dashboard</MenuItem>
-              <SubMenu title="Components">
-                <MenuItem>Component 1</MenuItem>
-                <MenuItem>Component 2</MenuItem>
-              </SubMenu>
-              <MenuItem><h1></h1></MenuItem>
-              <MenuItem><h1></h1></MenuItem>
-              <MenuItem><h1></h1></MenuItem>
-              <MenuItem><h1></h1></MenuItem>
-              <MenuItem><h1></h1></MenuItem>
-              <MenuItem><h1></h1></MenuItem>
-              <MenuItem><h1></h1></MenuItem>
-              <MenuItem><h1></h1></MenuItem>
-              <MenuItem></MenuItem>
             </Menu>
           </SidebarContent>
-          <SidebarFooter>
+          {values && <SidebarFooter>
             <Menu iconShape="square">
-                <MenuItem>Dashboard</MenuItem>
-                <SubMenu title="Components">
-                  <MenuItem>Component 1</MenuItem>
-                  <MenuItem>Component 2</MenuItem>
-                </SubMenu>
+                <MenuItem>Home</MenuItem>
+                <MenuItem>{values[0]}, {values[1]}</MenuItem>
               </Menu>
-          </SidebarFooter>
+          </SidebarFooter>}
         </ProSidebar>;
-        <DemoMap incidents={incidents}/>
+        <DemoMap incidents={incidents} setBooth={setBooth} setValues={setValues}/>
       </div>
       
     );
