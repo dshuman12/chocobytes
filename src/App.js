@@ -8,6 +8,7 @@ import Papa from 'papaparse'
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarFooter, SidebarContent } from 'react-pro-sidebar';
 import logo from './logo1.jpg';
 import './custom.scss';
+import './styles.css';
 
 const App = () => {
   const [incidents, setRows] = React.useState([])
@@ -29,7 +30,9 @@ const App = () => {
         <ProSidebar>
           <SidebarHeader>
             <Menu iconShape="square">
-              <MenuItem><img src={logo} alt="logo" width="150" height="100"></img></MenuItem>
+              <MenuItem><img src={logo} alt="logo" class="center"></img>
+              <h2 class="title">TurboVote</h2></MenuItem>
+              
             </Menu>
           </SidebarHeader>
           <SidebarContent>
@@ -39,6 +42,15 @@ const App = () => {
                 <MenuItem>Component 1</MenuItem>
                 <MenuItem>Component 2</MenuItem>
               </SubMenu>
+              <MenuItem><h1></h1></MenuItem>
+              <MenuItem><h1></h1></MenuItem>
+              <MenuItem><h1></h1></MenuItem>
+              <MenuItem><h1></h1></MenuItem>
+              <MenuItem><h1></h1></MenuItem>
+              <MenuItem><h1></h1></MenuItem>
+              <MenuItem><h1></h1></MenuItem>
+              <MenuItem><h1></h1></MenuItem>
+              <MenuItem></MenuItem>
             </Menu>
           </SidebarContent>
           <SidebarFooter>
