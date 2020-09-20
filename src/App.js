@@ -5,6 +5,10 @@ import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
 import "leaflet/dist/leaflet.css";
 import DemoMap from './components/Map'
 import Papa from 'papaparse'
+import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarFooter, SidebarContent } from 'react-pro-sidebar';
+import logo from './logo1.jpg';
+import './custom.scss';
+import './styles.css';
 
 const App = () => {
   const [incidents, setRows] = React.useState([])
@@ -15,17 +19,54 @@ const App = () => {
       const result = await reader.read() // raw array
       const decoder = new TextDecoder('utf-8')
       const csv = decoder.decode(result.value) // the csv text
-      console.log(csv)
       const results = Papa.parse(csv, { header: true }) // object with { data, errors, meta }
-      console.log(results)
       const incidents = results.data // array of objects
       setRows(incidents)
     }
     getData()
   }, []) // [] means just do this once, after initial render
-  console.log(incidents)
     return (
-      <DemoMap incidents={incidents}/>
+      <div>
+        <ProSidebar>
+          <SidebarHeader>
+            <Menu iconShape="square">
+              <MenuItem><img src={logo} alt="logo" class="center"></img>
+              <h2 class="title">TurboVote</h2>
+              <p text-align = "center">Find the nearest voting poll <br></br>and go vote today</p></MenuItem>
+              
+            </Menu>
+          </SidebarHeader>
+          <SidebarContent>
+            <Menu iconShape="square">
+              <MenuItem>Dashboard</MenuItem>
+              <SubMenu title="Components">
+                <MenuItem>Component 1</MenuItem>
+                <MenuItem>Component 2</MenuItem>
+              </SubMenu>
+              <MenuItem><h1></h1></MenuItem>
+              <MenuItem><h1></h1></MenuItem>
+              <MenuItem><h1></h1></MenuItem>
+              <MenuItem><h1></h1></MenuItem>
+              <MenuItem><h1></h1></MenuItem>
+              <MenuItem><h1></h1></MenuItem>
+              <MenuItem><h1></h1></MenuItem>
+              <MenuItem><h1></h1></MenuItem>
+              <MenuItem></MenuItem>
+            </Menu>
+          </SidebarContent>
+          <SidebarFooter>
+            <Menu iconShape="square">
+                <MenuItem>Dashboard</MenuItem>
+                <SubMenu title="Components">
+                  <MenuItem>Component 1</MenuItem>
+                  <MenuItem>Component 2</MenuItem>
+                </SubMenu>
+              </Menu>
+          </SidebarFooter>
+        </ProSidebar>;
+        <DemoMap incidents={incidents}/>
+      </div>
+      
     );
   
 }

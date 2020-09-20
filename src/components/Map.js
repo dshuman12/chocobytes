@@ -64,8 +64,7 @@ export default class DemoMap extends Component {
                         const point = [1,1];
                         return
                     } else {
-                        const point = [incident['Latitude'],incident['Longitude']]
-                        console.log(point);
+                        const point = [incident['Latitude'],incident['Longitude']];
                     
          
                 return (
@@ -83,6 +82,7 @@ export default class DemoMap extends Component {
             </Map>
             :
             'Data is loading...'
+
 
          )
      }
