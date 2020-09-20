@@ -45,11 +45,11 @@ const App = () => {
           {values && <SidebarFooter>
             <Menu iconShape="square">
                 <MenuItem>Home</MenuItem>
-                <MenuItem>{values[0]}, {values[1]}</MenuItem>
+                <MenuItem>{values[0]['Latitude']}, {values[0]['Longitude']}</MenuItem>
               </Menu>
           </SidebarFooter>}
         </ProSidebar>;
-        <DemoMap incidents={incidents} setBooth={setBooth} setValues={setValues}/>
+        <DemoMap incidents={incidents} values = {values} setBooth={setBooth} setValues={setValues}/>
       </div>
       
     );
